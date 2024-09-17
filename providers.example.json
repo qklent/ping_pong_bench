@@ -7,6 +7,29 @@
         "params": {
             "temperature": 0.6,
             "top_p": 0.9
-        }
+        },
+        "is_llmmarket": false
+    },
+    "vllm":
+    {
+        "base_url": "http://localhost:8896/v1",
+        "api_key": "тут можно реально любой, если не указывал api_key при поднятии вллм",
+        "model_name": "NousResearch/Meta-Llama-3-8B-Instruct",
+        "params": {
+            "temperature": 0.6,
+            "top_p": 0.9
+        },
+        "is_llmmarket": false
+    },
+    "gpt_3.5-turbo":
+    {
+        "base_url": "https://api.llmmarket.cloud/engine/inference",
+        "api_key": "Chto_skazal_slepoy_kogda_zashol_v_bar__Privet_vsem_kogo_ne_videl!",
+        "model_name": "openai/gpt-3.5-turbo",
+        "params": {
+            "temperature": 0.6,
+            "top_p": 0.9
+        },
+        "is_llmmarket": true
     }
 }

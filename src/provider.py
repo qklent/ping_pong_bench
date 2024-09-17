@@ -1,6 +1,7 @@
 from typing import Dict, Any
 
 from openai import OpenAI
+from src.llmmarket_utils import LLMMarketApi
 
 DEFAULT_PARAMS = {
     "temperature": 0.6,
@@ -18,11 +19,16 @@ class LLMProvider:
         system_prompt: str = "",
         merge_system: bool = False,
         params: Dict[str, Any] = DEFAULT_PARAMS,
+        is_llmmarket: bool = True,
         **kwargs: Any
     ) -> None:
         self.model_name = model_name
         self.system_prompt = system_prompt
-        self.api = OpenAI(base_url=base_url, api_key=api_key)
+        self.api = (
+            OpenAI(base_url=base_url, api_key=api_key)
+            if not is_llmmarket
+            else LLMMarketApi(base_url, api_key)
+        )
         self.params = params
         self.merge_system = merge_system
         for k, v in DEFAULT_PARAMS.items():
